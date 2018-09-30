@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Goods>
+<Good>
+<Type>box of chocolates</Type>
+<Quantity>1</Quantity>
+<Imported>true</Imported>
+<Price>10.00</Price>
+</Good>
+<Good>
+<Type>bottle of perfume</Type>
+<Quantity>1</Quantity>
+<Imported>true</Imported>
+<Price>47.50</Price>
+</Good>
+</Goods>
