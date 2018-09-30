@@ -2,14 +2,19 @@ package salestaxes;
 
 import java.io.File;
 
+import com.calc.tax.entity.Receipt;
 import org.junit.Test;
 
-import com.calc.tax.Receipt;
-import com.calc.tax.ReceiptSalesTaxXmlImp;
+import com.calc.tax.Interface.ReceiptGenerator;
+import com.calc.tax.impl.ReceiptGeneratorXmlImp;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SalesTaxXmlTest {
+
+	ReceiptGenerator r;
 	
-	@Test
+
 	public void testInputString() {
 		String input1 = "<Goods>\r\n" + 
 				"<Good>\r\n" + 
@@ -25,21 +30,37 @@ public class SalesTaxXmlTest {
 				"<Price>47.50</Price>\r\n" + 
 				"</Good>\r\n" + 
 				"</Goods>";
-		
-		Receipt r = new ReceiptSalesTaxXmlImp();
-		r.generate(input1);
-		System.out.println(r.toString());
+
+		Receipt receipt = r.generate(input1);
+		System.out.println(receipt.toString());
 	}
-	
-	@Test
+
 	public void testInputFile() {
 		
 		ClassLoader classLoader = new SalesTaxStringTest().getClass().getClassLoader();
         File file = new File(classLoader.getResource("input.xml").getFile());
-        Receipt r = new ReceiptSalesTaxXmlImp();
-		r.generate(file);
-		System.out.println(r.toString());
+        Receipt receipt = r.generate(file);
+		System.out.println(receipt.toString());
 		
+	}
+
+	@Test
+	public void AppTest(){
+
+		ApplicationContext context =
+				new ClassPathXmlApplicationContext("spring.xml");
+
+		SalesTaxXmlTest m = (SalesTaxXmlTest) context.getBean("mainxml");
+		m.testInputString();
+		m.testInputFile();
+	}
+
+	public ReceiptGenerator getR() {
+		return r;
+	}
+
+	public void setR(ReceiptGenerator r) {
+		this.r = r;
 	}
 
 }

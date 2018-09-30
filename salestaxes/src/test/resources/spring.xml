@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="receiptimpl" class="com.calc.tax.impl.ReceiptGeneratorImpl"></bean>
+    <bean id="receiptxmlimpl" class="com.calc.tax.impl.ReceiptGeneratorXmlImp"></bean>
+
+    <bean id="main" class="salestaxes.SalesTaxStringTest">
+        <property name="r" ref="receiptimpl"></property>
+    </bean>
+
+    <bean id="mainxml" class="salestaxes.SalesTaxXmlTest">
+        <property name="r" ref="receiptxmlimpl"></property>
+    </bean>
+
+</beans>
