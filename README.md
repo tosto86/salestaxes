@@ -1,2 +1,4 @@
 # salestaxes
-To test are present two junit class, SalesTaxStringTest (string parser) and SalesTaxXmlTest (xml parser).
+You can test the code by two junit class that are in the project:
+- SalesTaxStringTest: implementation of string parser
+- SalesTaxXmlTest: implementation of xml parser
