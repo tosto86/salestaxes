@@ -15,7 +15,7 @@ public class ReceiptSalesTaxImpl implements Receipt {
 
 	public static final String IMPORTEDTOKEN = " imported";
 	
-	public static final String REGEX = "^(\\d+)\\s(\\w+(\\s\\w+)*)\\s(at)\\s(\\d+(\\.\\d+)?)$";
+	public static final String REGEX = "^(\\d+)\\s(\\w+(\\s\\w+)*)\\s(at)\\s(\\d+(\\.\\d+)?)(\\r?\\n?)$";
 	
 	public static final String CR = System.getProperty("line.separator");
 	
